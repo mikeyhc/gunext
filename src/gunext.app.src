@@ -1,0 +1,17 @@
+{application, gunext, [
+    {description, "Useful functions to extend gun"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib,
+        gun
+    ]},
+    {env, []},
+    {modules, [
+        http_client,
+        gun_util
+    ]},
+    {licenses, ["The Unlicense"]},
+    {links, []}
+ ]}.
