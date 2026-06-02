@@ -44,5 +44,5 @@ empty_queue(ConnPid, Count) ->
             empty_queue(ConnPid, Count + 1);
         {gun_down, ConnPid, _Protocol, _Reason, _StreamRefs} ->
             empty_queue(ConnPid, Count + 1)
-    after 0 -> ?LOG_DEBUG("dropped ~p messages", [Count])
+    after ?DOWN_TIMEOUT -> ?LOG_DEBUG("dropped ~p messages", [Count])
     end.
