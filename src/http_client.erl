@@ -30,12 +30,12 @@
 
 -type configuration() :: #{host := string(),
                            port := pos_integer(),
-                           user_agent := string(),
-                           headers := {string(), string()},
-                           query_params := {string(), string()}}.
+                           user_agent => string(),
+                           headers => {string(), string()},
+                           query_params => {string(), string()}}.
 
--type options() :: #{query_params := [{string(), string()}],
-                     headers := [{string(), string()}]
+-type options() :: #{query_params => [{string(), string()}],
+                     headers => [{string(), string()}]
                     }.
 
 -type response() :: {ok, {pos_integer(), binary()}} | {error, timeouot}.
