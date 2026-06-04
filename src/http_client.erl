@@ -38,7 +38,8 @@
                      headers => [{iodata(), iodata()}]
                     }.
 
--type response() :: {ok, {pos_integer(), binary()}} | {error, timeouot}.
+-type response() :: {ok, {pos_integer(), binary() | no_data}} |
+                    {error, timeouot}.
 
 % Public API
 -spec start_link(Name, Configuration) -> {ok, pid()}
