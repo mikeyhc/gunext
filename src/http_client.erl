@@ -40,6 +40,8 @@
 
 -type response() :: {ok, {pos_integer(), binary()}} | {error, timeouot}.
 
+-type body() :: iolist() | binary().
+
 % Public API
 -spec start_link(Name, Configuration) -> {ok, pid()}
     when Name :: atom(), Configuration :: configuration().
@@ -54,19 +56,19 @@ get(ServerName, Resource) ->
 get(ServerName, Resource, Options) ->
     api_call_(ServerName, get, Resource, Options, ?DEFAULT_RETRIES).
 
--spec post(atom(), string(), iolist()) -> response().
+-spec post(atom(), string(), body()) -> response().
 post(ServerName, Resource, Body) ->
     post(ServerName, Resource, Body, #{}).
 
--spec post(atom(), string(), iolist(), options()) -> response().
+-spec post(atom(), string(), body(), options()) -> response().
 post(ServerName, Resource, Body, Options) ->
     api_call_(ServerName, post, Resource, Body, Options, ?DEFAULT_RETRIES).
 
--spec patch(atom(), string(), iolist()) -> response().
+-spec patch(atom(), string(), body()) -> response().
 patch(ServerName, Resource, Body) ->
     patch(ServerName, Resource, Body, #{}).
 
--spec patch(atom(), string(), iolist(), options()) -> response().
+-spec patch(atom(), string(), body(), options()) -> response().
 patch(ServerName, Resource, Body, Options) ->
     api_call_(ServerName, patch, Resource, Body, Options, ?DEFAULT_RETRIES).
 

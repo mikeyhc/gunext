@@ -1,6 +1,6 @@
 {application, gunext, [
     {description, "Useful functions to extend gun"},
-    {vsn, "0.2.2"},
+    {vsn, "0.2.3"},
     {registered, []},
     {applications, [
         kernel,
