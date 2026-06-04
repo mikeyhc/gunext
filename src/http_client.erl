@@ -30,9 +30,9 @@
 
 -type configuration() :: #{host := string(),
                            port := pos_integer(),
-                           user_agent => string(),
-                           headers => {iodata(), iodata()},
-                           query_params => {string(), string()}}.
+                           user_agent => iodata(),
+                           headers => [{iodata(), iodata()}],
+                           query_params => [{string(), string()}]}.
 
 -type options() :: #{query_params => [{string(), string()}],
                      headers => [{iodata(), iodata()}]
@@ -42,8 +42,7 @@
                     {error, timeouot}.
 
 % Public API
--spec start_link(Name, Configuration) -> {ok, pid()}
-    when Name :: atom(), Configuration :: configuration().
+-spec start_link(atom(), configuration()) -> {ok, pid()}.
 start_link(Name, Configuration) ->
     gen_server:start_link({local, Name}, ?MODULE, [Configuration], []).
 
