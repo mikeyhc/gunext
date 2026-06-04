@@ -35,7 +35,7 @@
                            query_params => {string(), string()}}.
 
 -type options() :: #{query_params => [{string(), string()}],
-                     headers => [{string(), string()}]
+                     headers => [{iodata(), iodata()}]
                     }.
 
 -type response() :: {ok, {pos_integer(), binary()}} | {error, timeouot}.
