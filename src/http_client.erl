@@ -31,7 +31,7 @@
 -type configuration() :: #{host := string(),
                            port := pos_integer(),
                            user_agent => string(),
-                           headers => {string(), string()},
+                           headers => {iodata(), iodata()},
                            query_params => {string(), string()}}.
 
 -type options() :: #{query_params => [{string(), string()}],
@@ -39,8 +39,6 @@
                     }.
 
 -type response() :: {ok, {pos_integer(), binary()}} | {error, timeouot}.
-
--type body() :: iolist() | binary().
 
 % Public API
 -spec start_link(Name, Configuration) -> {ok, pid()}
@@ -56,19 +54,19 @@ get(ServerName, Resource) ->
 get(ServerName, Resource, Options) ->
     api_call_(ServerName, get, Resource, Options, ?DEFAULT_RETRIES).
 
--spec post(atom(), string(), body()) -> response().
+-spec post(atom(), string(), iodata()) -> response().
 post(ServerName, Resource, Body) ->
     post(ServerName, Resource, Body, #{}).
 
--spec post(atom(), string(), body(), options()) -> response().
+-spec post(atom(), string(), iodata(), options()) -> response().
 post(ServerName, Resource, Body, Options) ->
     api_call_(ServerName, post, Resource, Body, Options, ?DEFAULT_RETRIES).
 
--spec patch(atom(), string(), body()) -> response().
+-spec patch(atom(), string(), iodata()) -> response().
 patch(ServerName, Resource, Body) ->
     patch(ServerName, Resource, Body, #{}).
 
--spec patch(atom(), string(), body(), options()) -> response().
+-spec patch(atom(), string(), iodata(), options()) -> response().
 patch(ServerName, Resource, Body, Options) ->
     api_call_(ServerName, patch, Resource, Body, Options, ?DEFAULT_RETRIES).
 
