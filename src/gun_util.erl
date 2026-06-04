@@ -6,7 +6,8 @@
 
 -define(DOWN_TIMEOUT, 100).
 
--spec handle_down(pid(), any(), iolist(), iolist()) -> connected | disconnected.
+-spec handle_down(pid(), any(), iolist(), pos_integer()) -> connected |
+                                                            disconnected.
 handle_down(ConnPid, Reason, Host, Port) ->
     case temporary_reason(Reason) of
         true ->
