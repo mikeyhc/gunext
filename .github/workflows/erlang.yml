@@ -18,6 +18,7 @@ jobs:
       run: |
         sudo apt-get update && sudo apt-get install erlang
         curl https://s3.amazonaws.com/rebar3/rebar3 -o rebar3
+        chmod +x ./rebar3
     - name: Compile
       run: ./rebar3 compile
     - name: Check types
