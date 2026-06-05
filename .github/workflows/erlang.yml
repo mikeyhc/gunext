@@ -18,6 +18,6 @@ jobs:
       run: |
         sudo apt-get update && sudo apt-get install erlang rebar3
     - name: Compile
-      run: ./rebar3 compile
+      run: rebar3 compile
     - name: Check types
-      run: ./rebar3 dialyzer
+      run: rebar3 dialyzer
