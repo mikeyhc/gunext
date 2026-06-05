@@ -8,18 +8,14 @@ on:
 
 permissions:
   contents: read
-
+  
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
-    container:
-      image: erlang:24.04
-
     steps:
     - uses: actions/checkout@v6
+    - name: Install Erlang
+      run: sudo apt-get update && sudo apt-get install erlang
     - name: Compile
       run: rebar3 compile
     - name: Check types
