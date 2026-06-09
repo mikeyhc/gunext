@@ -32,7 +32,7 @@ await_down(ConnPid, MRef) ->
     empty_queue(ConnPid, 0).
 
 temporary_reason(normal) -> true;
-temporary_reason({error, closesd}) -> true;
+temporary_reason({error, closed}) -> true;
 temporary_reason({error, einval}) -> true;
 temporary_reason(_Reason) -> false.
 
